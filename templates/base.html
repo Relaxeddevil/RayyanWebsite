@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1">
+
+    <link rel="icon" href="{{url_for('static', filename='Images/base_images/icon.png')}}">
+
+  <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous">
+  <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <link rel="stylesheet" href="{{url_for('static', filename='CSS/base.css')}}">
+
+
+  <title>{% block title %}Welcome{% endblock %}</title>
+</head>
+
+<body>
+
+<div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+  <a href="/"><span><i class="material-icons">home</i><span class="icon-text">Home</span></a><br>
+  <a href="#"><i class="material-icons">work</i><span class="icon-text"></span>Work Experience</a></span>
+  </a><br>
+  <a href="#"><i class="material-icons">engineering</i><span class="icon-text"></span>Personal Projects</span></a><br>
+  <a href="#"><i class="material-icons">email</i><span class="icon-text"></span>Contact Info<span></a>
+</div>
+
+<div id="main">
+  {% block main %}
+
+  {% endblock %}
+</div>
+
+<script src="{{url_for('static', filename='JS/base.js')}}"></script>
+
+</body>
+</html>
