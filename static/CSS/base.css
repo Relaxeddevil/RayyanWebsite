@@ -49,6 +49,10 @@ main .sidebar {
   transition: margin-left 0.5s;
 }
 
+body {
+    background-color:#818181;
+}
+
 @media screen and (max-height: 450px) {
   .sidebar {
     padding-top: 15px;

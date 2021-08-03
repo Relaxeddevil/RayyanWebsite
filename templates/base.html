@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width", initial-scale="1">
+    <meta name="viewport" content="width=device-width" , initial-scale="1">
 
     <link rel="icon" href="{{url_for('static', filename='Images/base_images/icon.png')}}">
 
@@ -19,6 +19,10 @@
 
   <link rel="stylesheet" href="{{url_for('static', filename='CSS/base.css')}}">
 
+  {% block css %}
+
+  {% endblock %}
+
 
   <title>{% block title %}Welcome{% endblock %}</title>
 </head>
@@ -26,11 +30,16 @@
 <body>
 
 <div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
-  <a href="/"><span><i class="material-icons">home</i><span class="icon-text">Home</span></a><br>
-  <a href="#"><i class="material-icons">work</i><span class="icon-text"></span>Work Experience</a></span>
-  </a><br>
-  <a href="#"><i class="material-icons">engineering</i><span class="icon-text"></span>Personal Projects</span></a><br>
-  <a href="mailto:rayyanmajidis@gmail.com"><i class="material-icons">email</i><span class="icon-text"></span>Send Email<span></a>
+  <a href="/"><i class="material-icons">home</i><span class="icon-text">Home</span></a>
+    <br>
+  <a href="/"><i class="material-icons">info</i><span class="icon-text">About Me</span></a>
+    <br>
+  <a href="#"><i class="material-icons">work</i><span class="icon-text">Work Experience</span></a>
+    <br>
+  <a href="#"><i class="material-icons">engineering</i><span class="icon-text">Personal Projects</span></a>
+    <br>
+  <a href="mailto:rayyanmajidis@gmail.com"><i class="material-icons">email</i><span class="icon-text">Send Email</span></a>
+    <br>
 </div>
 
 <div id="main">
