@@ -1,7 +1,7 @@
 
 .sidebar {
   height: 100%;
-  width: 85px;
+  width: 5%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -16,7 +16,7 @@
 .sidebar a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 1.5rem;
   color: #818181;
   display: block;
 }
@@ -33,8 +33,8 @@ main .sidebar {
   margin-left: 50px;
 }
 
-.material-icons,
-.icon-text {
+.material-icons, .icon-text {
+
   vertical-align: middle;
 }
 
@@ -51,6 +51,12 @@ main .sidebar {
 
 body {
     background-color:#818181;
+}
+
+.sidebar_contents{
+    position:absolute;
+    top:25%;
+
 }
 
 @media screen and (max-height: 450px) {
