@@ -1,12 +1,7 @@
-from flask import Flask
+from Website import create_app
 
-app = Flask(__name__)
+app = create_app()
 
 if __name__ == '__main__':
-
-    from views import views
-
-    app.register_blueprint(views, url_prefix='/')
-    app.config['SECRET_KEY'] = "THIS IS MY SECRET KEY"
-
     app.run(debug=True)
+
