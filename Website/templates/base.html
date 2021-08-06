@@ -30,11 +30,15 @@
 <body>
 
 <div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+
+  <img id ='suit' src="{{url_for('static', filename='Images/base_images/rayyan in suit fix.png')}}">
+
   <div class='sidebar_contents'>
+
 
     <a href="/"><i class="material-icons" id="home">home</i><span class="icon-text">Home</span></a>
     <br>
-    <a href="/"><i class="material-icons">info</i><span class="icon-text">About Me</span></a>
+    <a href="/about"><i class="material-icons">info</i><span class="icon-text">About Me</span></a>
     <br>
     <a href="#"><i class="material-icons">work</i><span class="icon-text">Work Experience</span></a>
     <br>

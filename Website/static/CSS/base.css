@@ -1,7 +1,6 @@
-
 .sidebar {
   height: 100%;
-  width: 85px;
+  width: 80px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -45,7 +44,7 @@
 
 #main {
   padding: 16px;
-  margin-left: 85px;
+  margin-left: 80px;
   transition: margin-left 0.5s;
 }
 
@@ -61,6 +60,20 @@ body {
   transform: translateY(-50%);
 
 }
+
+
+#suit{
+    position: absolute;
+    top:0;
+    margin-left: 15px;
+    -ms-transform: translateY(-8%);
+    transform: translateY(-8%);
+    width: 90%;
+    opacity: 0;
+}
+
+
+
 
 @media screen and (max-height: 450px) {
   .sidebar {
