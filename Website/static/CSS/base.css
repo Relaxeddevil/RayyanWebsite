@@ -68,7 +68,7 @@ body {
     margin-left: 15px;
     -ms-transform: translateY(-8%);
     transform: translateY(-8%);
-    width: 90%;
+    width: 100%;
     opacity: 0;
 }
 
@@ -87,8 +87,8 @@ body {
     position: absolute;
     top:0;
     margin-left: 15px;
-    -ms-transform: translateY(-8%);
-    transform: translateY(-8%);
+    -ms-transform: translateY(-12%);
+    transform: translateY(-12%);
     width: 90%;
     opacity: 0;
   }
