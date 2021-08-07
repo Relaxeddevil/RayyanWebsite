@@ -84,6 +84,12 @@ body {
   }
 
   #suit{
-  width: 55%;
+    position: absolute;
+    top:0;
+    margin-left: 15px;
+    -ms-transform: translateY(-8%);
+    transform: translateY(-8%);
+    width: 55%;
+    opacity: 0;
   }
 }
