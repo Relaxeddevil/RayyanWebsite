@@ -75,11 +75,15 @@ body {
 
 
 
-@media screen and (max-height: 450px) {
+@media only screen and (max-width: 500px) {
   .sidebar {
     padding-top: 15px;
   }
   .sidebar a {
     font-size: 18px;
+  }
+
+  #suit{
+  width: 55%;
   }
 }
