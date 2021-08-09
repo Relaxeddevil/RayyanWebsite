@@ -2,7 +2,6 @@
 .title{
     text-align:center;
     font-size:3rem;
-
 }
 
 .work_exp{
@@ -42,7 +41,22 @@ hr {
 }
 
 .line_break {
-    height:75px;
+    height:85px;
+
+}
+
+.resume{
+    padding:0;
+    text-align:center;
+    display: block;
+    color: #00008b;
+}
+
+.linkedin{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 5%;
 
 }
 
@@ -60,7 +74,14 @@ hr {
     }
 
     .line_break{
-        height:50px;
+        height:40px;
+    }
+
+    .linkedin{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 10%;
     }
 
 }
