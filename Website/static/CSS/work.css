@@ -32,3 +32,21 @@
 
     }
 
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #111;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+@media only screen and (max-width: 500px) {
+    .work_exp{
+        font-size:1rem;
+        padding-left:2rem;
+
+    }
+
+}
