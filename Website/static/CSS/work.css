@@ -41,6 +41,11 @@ hr {
     padding: 0;
 }
 
+.line_break {
+    height:75px;
+
+}
+
 
 @media only screen and (max-width: 600px) {
 
@@ -52,6 +57,10 @@ hr {
         font-size:1rem;
         padding-left:2rem;
 
+    }
+
+    .line_break{
+        height:50px;
     }
 
 }
