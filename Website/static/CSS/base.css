@@ -93,3 +93,16 @@ body {
     opacity: 0;
   }
 }
+
+@media only screen and (max-height: 850px) {
+    #suit{
+    position: absolute;
+    top:0;
+    margin-left: 15px;
+    -ms-transform: translateY(-12%);
+    transform: translateY(-12%);
+    width: 90%;
+    opacity: 0;
+  }
+
+}
