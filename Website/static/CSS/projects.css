@@ -4,43 +4,25 @@
 }
 
 
-.one {
+.first {
     margin-bottom: 50px;
     margin-left: 30px;
     background-color: #111;
     color: #818181;
 }
 
-.two {
-    margin-bottom: 50px;
-    margin-left: 30px;
-    margin-right: 30px;
-    background-color: #111;
-    color: #818181;
-
-}
-
-.three {
-    margin-bottom: 50px;
-    margin-left: 30px;
-    background-color: #111;
-    color: #818181;
-}
-
-.four {
+.second {
     margin-bottom: 50px;
     margin-left: 30px;
     margin-right: 30px;
     background-color: #111;
     color: #818181;
+
 }
+
 
 @media only screen and (max-width: 991px) {
-    .one {
-    margin-right: 30px;
-    }
-
-    .three {
+    .first {
     margin-right: 30px;
     }
 

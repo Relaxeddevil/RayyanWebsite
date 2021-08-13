@@ -58,7 +58,7 @@ hr {
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 650px) {
 
     .title{
         font-size:2rem;
@@ -71,11 +71,11 @@ hr {
     }
 
     .line_break{
-        height:40px;
+        height:20px;
     }
 
     .linkedin{
-        width: 10%;
+        width: 15%;
     }
 
 }

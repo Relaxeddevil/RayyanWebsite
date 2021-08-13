@@ -58,7 +58,6 @@ body {
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-
 }
 
 
@@ -71,8 +70,6 @@ body {
     width: 100%;
     opacity: 0;
 }
-
-
 
 
 @media only screen and (max-width: 500px) {
@@ -93,6 +90,7 @@ body {
     opacity: 0;
   }
 }
+
 
 @media only screen and (max-height: 850px) {
     #suit{
