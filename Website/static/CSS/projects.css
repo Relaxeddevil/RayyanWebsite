@@ -1,6 +1,12 @@
 
+.github{
+margin-top:5px;
+width:4%;
+}
+
+
 .line_break {
-    height:65px;
+    height:55px;
 }
 
 
@@ -13,17 +19,31 @@
 
 .second {
     margin-bottom: 50px;
-    margin-left: 30px;
+    margin-left: 40px;
     margin-right: 30px;
     background-color: #111;
     color: #818181;
 
 }
 
+.title {
+    padding-top: 7px;
+}
 
 @media only screen and (max-width: 991px) {
+    .github{
+    width:7.5%;
+    }
+
+    .line_break{
+    height:40px;
+    }
+
     .first {
     margin-right: 30px;
     }
 
+    .second {
+    margin-left: 30px;
+    }
 }
