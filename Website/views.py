@@ -16,3 +16,8 @@ def about():
 @views.route('/work')
 def work():
     return render_template("work.html")
+
+
+@views.route('/projects')
+def projects():
+    return render_template("projects.html")
