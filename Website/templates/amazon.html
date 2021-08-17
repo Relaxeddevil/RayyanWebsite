@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Amazon Web-Scraper{% endblock %}
+
+
+{% block main %}
+<h2 align="center">Please enter the items you would like to search for separated by commas</h2>
+
+<form method="POST">
+  <div class="form-group">
+    <label for="search">Search Terms</label>
+    <input
+      type="search"
+      class="form-control"
+      id="search"
+      name="search"
+      placeholder="shoes, hats, t-shirts"
+    />
+  </div>
+<br />
+
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Boxplot{% endblock %}
+
+{% block main %}
+<center>
+<h2>Below is a boxplot related to your search and a link to download the data that was scraped</h2>
+<br/>
+
+<img src="{{url_for('static', filename='amazon/boxplot.png')}}">
+<br/>
+<br/>
+<h3><a href="{{url_for('static', filename='amazon/Amazon Web-Scraper.xlsx')}}" download>Download Data</a></h3>
+
+</center>
+{% endblock %}

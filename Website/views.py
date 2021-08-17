@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
+from amazon import *
 
 views = Blueprint('views', __name__)
 
@@ -21,3 +22,17 @@ def work():
 @views.route('/projects')
 def projects():
     return render_template("projects.html")
+
+
+@views.route('/amazon-scraper', methods=['GET', 'POST'])
+def amazon():
+    if request.method == "POST":
+        search = request.form.get('search')
+
+        df = create_dataframe(search)
+        create_bp(df)
+        save_to_excel(df)
+
+        return render_template('boxplot.html')
+
+    return render_template("amazon.html")
