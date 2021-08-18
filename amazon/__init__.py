@@ -22,7 +22,7 @@ def get_soup(search_term):
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--no-sandbox")
     options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
-    executable_path=os.environ.get('CHROMEDRIVER_PATH')
+    executable_path = os.environ.get('CHROMEDRIVER_PATH')
 
     driver = webdriver.Chrome(executable_path=executable_path, options=options)
     url = 'https://www.amazon.ca/'
