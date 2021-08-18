@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from amazon import *
+import time
 
 views = Blueprint('views', __name__)
 
@@ -27,11 +28,12 @@ def projects():
 @views.route('/amazon-scraper', methods=['GET', 'POST'])
 def amazon():
     if request.method == "POST":
-        search = request.form.get('search')
+        input = request.form.get('search')
 
-        df = create_dataframe(search)
+        df = create_dataframe(input)
         create_bp(df)
         save_to_excel(df)
+        time.sleep(3)
 
         return render_template('boxplot.html')
 
