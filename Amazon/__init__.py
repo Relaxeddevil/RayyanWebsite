@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import time
 import pandas as pd
 import matplotlib.pyplot as plt
-import os
+import undetected_chromedriver as uc
 
 
 # terms = input("What would you like to search Amazon.ca for? ")
@@ -16,7 +16,7 @@ def clean_input(unclean):
 
 def get_soup(search_term):
     options = webdriver.ChromeOptions()
-    options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
+    # options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
 
     options.add_argument("--headless")
     # options.add_argument("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -25,7 +25,8 @@ def get_soup(search_term):
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--no-sandbox")
 
-    driver = webdriver.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'), chrome_options=options)
+    # executable_path=os.environ.get('CHROMEDRIVER_PATH'),
+    driver = uc.Chrome(options=options)
     url = 'https://www.amazon.ca/'
     driver.get(url)
     driver.maximize_window()
@@ -73,12 +74,15 @@ def get_data(keywords):
             price_clean = price.text[:-1].replace(',', '')
             temp_prices.append(int(price_clean))
 
-        for i in range(len(temp_prices)):
+        length = min(len(temp_names), len(temp_prices))
+
+        for i in range(length):
             temp_search.append(keyword)
 
-        names_list.extend(temp_names[:len(temp_prices)])
-        prices_list.extend(temp_prices)
+        names_list.extend(temp_names[:length])
+        prices_list.extend(temp_prices[:length])
         search_list.extend(temp_search)
+        print(len(names_list), len(prices_list), len(search_list))
 
     return names_list, prices_list, search_list
 

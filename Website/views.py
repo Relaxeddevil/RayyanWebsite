@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from amazon import *
+from Amazon import *
 import time
 
 views = Blueprint('views', __name__)
