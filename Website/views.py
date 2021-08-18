@@ -31,9 +31,10 @@ def amazon():
         input = request.form.get('search')
 
         df = create_dataframe(input)
-        create_bp(df)
-        save_to_excel(df)
-        time.sleep(3)
+        create_bp(df, url_for('static', filename='amazon/boxplot.png'))
+        save_to_excel(df, url_for('static', filename='amazon/Amazon Web-Scraper.xlsx'),
+                      url_for('static', filename='amazon/Amazon Web-Scraper.xlsx'))
+        # time.sleep(3)
 
         return render_template('boxplot.html')
 

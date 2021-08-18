@@ -97,23 +97,25 @@ def create_dataframe(search):
     return df
 
 
-def create_bp(dataframe):
+def create_bp(dataframe, path_img):
     bp = dataframe.boxplot(by=['Search Term'], column=['Price ($)'], grid=False, showmeans=True)
     bp.set_title("")
     # bp.set_xlabel("")
     bp.set_ylabel("Price ($)")
 
     # plt.suptitle('')
-    plt.savefig('Website/static/amazon/boxplot.png')
+    # plt.savefig('Website/static/amazon/boxplot.png')
+    plt.savefig(path_img)
 
 
-def save_to_excel(dataframe):
-    writer = pd.ExcelWriter('Website/static/amazon/Amazon Web-Scraper.xlsx')
+def save_to_excel(dataframe, path_excel, path_img):
+    # writer = pd.ExcelWriter('Website/static/amazon/Amazon Web-Scraper.xlsx')
+    writer = pd.ExcelWriter(path_excel)
     dataframe.to_excel(writer, sheet_name='Data', index=False)
 
     bpsheet = writer.sheets['Data']
-    bpsheet.insert_image('E2', 'Website/static/amazon/boxplot.png')
-
+    # bpsheet.insert_image('E2', 'Website/static/amazon/boxplot.png')
+    bpsheet.insert_image('E2', path_img)
     writer.save()
     print('saved files')
 
@@ -121,5 +123,5 @@ def save_to_excel(dataframe):
 if __name__ == '__main__':
     search = input('What would you like to search? ')
     df = create_dataframe(search)
-    create_bp(df)
-    save_to_excel(df)
+    create_bp(df, 'Website/static/amazon/boxplot.png')
+    save_to_excel(df, 'Website/static/amazon/Amazon Web-Scraper.xlsx', 'Website/static/amazon/boxplot.png')
