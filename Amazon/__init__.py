@@ -10,7 +10,11 @@ import undetected_chromedriver as uc
 
 
 def clean_input(unclean):
-    clean = unclean.replace(' ', '').split(",")
+    tmp = unclean.split(",")
+    clean = []
+    for i in tmp:
+        clean.append(i.strip())
+
     return clean
 
 
