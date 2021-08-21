@@ -23,8 +23,8 @@ def get_soup(search_term):
     # options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
 
     options.add_argument("--headless")
-    # options.add_argument("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
-    #                     "Chrome/92.0.4515.131 ""Safari/537.36")
+    options.add_argument("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                       "Chrome/92.0.4515.131 ""Safari/537.36")
 
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--no-sandbox")
