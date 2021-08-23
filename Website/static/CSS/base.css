@@ -97,8 +97,8 @@ body {
     position: absolute;
     top:0;
     margin-left: 15px;
-    -ms-transform: translateY(-12%);
-    transform: translateY(-12%);
+    -ms-transform: translateY(-10%);
+    transform: translateY(-10%);
     width: 80%;
     opacity: 0;
   }
