@@ -1,24 +1,27 @@
 {% extends "base.html" %}
 {% block title %}Amazon Web-Scraper{% endblock %}
-
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='CSS/amazon.css')}}">
+{% endblock %}
 
 {% block main %}
 <h2 align="center">Please enter the items you would like to search for separated by commas</h2>
 
-<form method="POST">
-  <div class="form-group">
-    <label for="search">Search Terms</label>
-    <input
-      type="search"
-      class="form-control"
-      id="search"
-      name="search"
-      placeholder="shoes, hats, t-shirts"
-    />
-  </div>
-<br />
+<div class="container-fluid">
+  <form class='froms' method="POST">
+    <div class="form-group">
+      <label for="search">Search Terms</label>
+      <input
+        type="search"
+        class="form-control"
+        id="search"
+        name="search"
+        placeholder="shoes, hats, t-shirts"
+      />
+    </div>
+  </br>
 
-    <button type="submit" class="btn btn-primary">Search</button>
+      <button type="submit" class="btn btn-primary">Search</button>
 </form>
-
+</div>
 {% endblock %}
