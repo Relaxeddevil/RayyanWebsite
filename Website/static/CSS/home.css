@@ -17,13 +17,18 @@ p {
 
 .bg{
     position: absolute;
-    width: 1822px;
+    width: 1840px;
     top:0;
     -ms-transform: translateY(-8%);
     transform: translateY(-8%);
 
 }
 
+html,body{
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
 
 @media only screen and (max-width: 500px) {
 
