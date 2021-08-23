@@ -25,7 +25,7 @@ def projects():
     return render_template("projects.html")
 
 
-@views.route('/amazon-scraper', methods=['GET', 'POST'])
+@views.route('/amazon', methods=['GET', 'POST'])
 def amazon():
     if request.method == "POST":
         input = request.form.get('search')
