@@ -5,7 +5,8 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  /*background-color: #111;*/
+  background-color: #202231;
   transition: 0.5s;
   overflow-x: hidden;
   padding-top: 60px;
@@ -16,12 +17,14 @@
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 1.5rem;
-  color: #818181;
+  /*color: #818181;*/
+  color: #62929E;
   display: block;
 }
 
 .sidebar a:hover {
-  color: #f1f1f1;
+  /*color: #f1f1f1;*/
+  color: #BD8C61;
 }
 
 #main .sidebar {
@@ -43,13 +46,13 @@
 }
 
 #main {
-  padding: 16px;
   margin-left: 80px;
   transition: margin-left 0.5s;
 }
 
 body {
-    background-color: #818181;
+    /*background-color: #818181;*/
+    background-color: #EDE0D4;
 }
 
 .sidebar_contents{
