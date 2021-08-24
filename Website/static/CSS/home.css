@@ -5,7 +5,7 @@ p {
 }
 
 .home_text {
-    font-size:3rem;
+    font-size:3.5rem;
     padding-left: 1em;
     margin: 0;
     position: absolute;
@@ -40,6 +40,14 @@ html,body{
         top: 50%;
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
+        }
 
+}
 
+@media only screen and (max-width: 1350px) {
+
+    .bg{
+       display: none;
+
+        }
 }
