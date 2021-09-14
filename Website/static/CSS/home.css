@@ -15,7 +15,7 @@ p {
 
 }
 
-.bg{
+.bg1{
     position: absolute;
     width: 1840px;
     top:0;
@@ -28,7 +28,9 @@ html,body{
     max-width: 100%;
     overflow-x: hidden;
     overflow-y: hidden;
+
 }
+
 
 @media only screen and (max-width: 500px) {
 
@@ -44,10 +46,12 @@ html,body{
 
 }
 
+
 @media only screen and (max-width: 1350px) {
 
-    .bg{
+    .bg1{
        display: none;
 
         }
+
 }
