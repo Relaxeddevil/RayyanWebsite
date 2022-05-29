@@ -117,7 +117,8 @@ def save_to_excel(dataframe):
     dataframe.to_excel(writer, sheet_name='Data', index=False)
 
     bpsheet = writer.sheets['Data']
-    bpsheet.insert_image('E2', 'Website/static/amazon/boxplot.png')
+    # bpsheet.add_image('E2', 'Website/static/amazon/boxplot.png')
+    # bpsheet.insert_image('E2', 'Website/static/amazon/boxplot.png')
     writer.save()
     print('saved files')
 
