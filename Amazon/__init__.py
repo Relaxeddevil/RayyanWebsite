@@ -21,7 +21,7 @@ def clean_input(unclean):
 
 def get_soup(search_term):
     options = webdriver.ChromeOptions()
-    options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
+    options.binary_location = os.environ.get('GOOGLE_CHROME_BIN') # heroku
 
     options.add_argument("--headless")
     # options.add_argument("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -30,8 +30,9 @@ def get_soup(search_term):
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--no-sandbox")
 
-    executable_path = os.environ.get('CHROMEDRIVER_PATH'),
-    driver = uc.Chrome(executable_path=executable_path, chrome_options=options)
+    executable_path = os.environ.get('CHROMEDRIVER_PATH') #heroku
+    # driver = uc.Chrome(executable_path=executable_path, chrome_options=options) #Personal
+    driver = webdriver.Chrome(executable_path=executable_path, chrome_options=options)
     url = 'https://www.amazon.ca/'
     driver.get(url)
     driver.maximize_window()
@@ -68,8 +69,8 @@ def get_data(keywords):
         temp_prices = []
         temp_search = []
 
-        soup = get_soup(keyword)
         print('getting data for ' + keyword)
+        soup = get_soup(keyword)
 
         names = soup.find_all("span", {'class': 'a-size-base-plus a-color-base a-text-normal'})
         for name in names:
