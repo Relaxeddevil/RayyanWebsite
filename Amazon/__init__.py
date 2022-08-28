@@ -20,19 +20,18 @@ def clean_input(unclean):
 
 
 def get_soup(search_term):
-    options = webdriver.ChromeOptions()
-    options.binary_location = os.environ.get('GOOGLE_CHROME_BIN') # heroku
+    # comment out "heroku" lines and uncomment "Personal" line when running locally
 
+    options = webdriver.ChromeOptions()
+    options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')  # heroku
+    executable_path = os.environ.get('CHROMEDRIVER_PATH')  # heroku
     options.add_argument("--headless")
-    # options.add_argument("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
-    #                      "Chrome/92.0.4515.131 ""Safari/537.36")
 
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--no-sandbox")
 
-    executable_path = os.environ.get('CHROMEDRIVER_PATH') #heroku
-    # driver = uc.Chrome(executable_path=executable_path, chrome_options=options) #Personal
-    driver = webdriver.Chrome(executable_path=executable_path, chrome_options=options)
+    driver = webdriver.Chrome(executable_path=executable_path, chrome_options=options)  # heroku
+    # driver = uc.Chrome(chrome_options=options)  # Personal
     url = 'https://www.amazon.ca/'
     driver.get(url)
     driver.maximize_window()
