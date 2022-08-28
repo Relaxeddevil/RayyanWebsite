@@ -29,7 +29,7 @@ def projects():
 def amazon():
     if request.method == "POST":
         input = request.form.get('search')
-        flash('Searching for your results, please provide a few minutes while I scrape', 'info')
+        flash('Searching for your results, please provide a few minutes while I scrape')
         df = create_dataframe(input)
         create_bp(df)
         save_to_excel(df)
