@@ -36,7 +36,8 @@ def get_soup(search_term):
     driver.get(url)
     driver.maximize_window()
 
-    search_box = driver.find_element_by_id("twotabsearchtextbox")
+    # search_box = driver.find_element_by_id("twotabsearchtextbox")
+    search_box = driver.find_element("twotabsearchtextbox")
     search_box.send_keys(search_term)
     search_box.submit()
 
