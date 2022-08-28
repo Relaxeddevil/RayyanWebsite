@@ -28,8 +28,8 @@ def projects():
 @views.route('/amazon', methods=['GET', 'POST'])
 def amazon():
     if request.method == "POST":
-        input = request.form.get('search')
         flash('Searching for your results, please provide a few minutes while I scrape')
+        input = request.form.get('search')
         df = create_dataframe(input)
         create_bp(df)
         save_to_excel(df)
