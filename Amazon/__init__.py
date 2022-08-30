@@ -32,23 +32,21 @@ def get_soup(search_term):
     executable_path = os.environ.get('CHROMEDRIVER_PATH')  # heroku
 
     options.add_argument("--headless")
-    options.add_argument("--start-minimized")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--no-sandbox")
 
     driver = webdriver.Chrome(executable_path=executable_path, chrome_options=options)  # heroku
-    # driver = uc.Chrome(chrome_options=options)  # Personal
+    # driver = webdriver.Chrome(chrome_options=options)  # Personal
     url = 'https://www.amazon.ca/'
     driver.get(url)
     # driver.maximize_window()
-    time.sleep(5)
+    time.sleep(15)
 
     search_box = driver.find_element(By.ID, "twotabsearchtextbox")
     search_box.send_keys(search_term)
     search_box.submit()
-    time.sleep(1)
+    time.sleep(5)
 
-    time.sleep(1)
     # driver.save_screenshot('local_ss.png')
 
     html = driver.page_source
