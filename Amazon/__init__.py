@@ -1,4 +1,6 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
 import time
 import pandas as pd
@@ -22,11 +24,15 @@ def clean_input(unclean):
 def get_soup(search_term):
     # comment out "heroku" lines and uncomment "Personal" line when running locally
 
-    options = webdriver.ChromeOptions()
+    # options = webdriver.ChromeOptions()
+    options = Options()
+
+    options.headless = True
     options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')  # heroku
     executable_path = os.environ.get('CHROMEDRIVER_PATH')  # heroku
-    options.add_argument("--headless")
 
+    options.add_argument("--headless")
+    options.add_argument("--start-minimized")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--no-sandbox")
 
@@ -34,18 +40,13 @@ def get_soup(search_term):
     # driver = uc.Chrome(chrome_options=options)  # Personal
     url = 'https://www.amazon.ca/'
     driver.get(url)
-    driver.maximize_window()
+    # driver.maximize_window()
+    time.sleep(5)
 
-    # search_box = driver.find_element_by_id("twotabsearchtextbox")
-    search_box = driver.find_element("twotabsearchtextbox")
+    search_box = driver.find_element(By.ID, "twotabsearchtextbox")
     search_box.send_keys(search_term)
     search_box.submit()
-
-    '''sort = driver.find_element_by_id('a-autoid-0-announce')
-    sort.click()
-
-    av_reviews = driver.find_element_by_id('s-result-sort-select_3')
-    av_reviews.click()'''
+    time.sleep(1)
 
     time.sleep(1)
     # driver.save_screenshot('local_ss.png')
