@@ -24,10 +24,10 @@ def clean_input(unclean):
 def get_soup(search_term):
     # comment out "heroku" lines and uncomment "Personal" line when running locally
 
-    # options = webdriver.ChromeOptions()
-    options = Options()
+    options = webdriver.ChromeOptions()
+    # options = Options()
 
-    options.headless = True
+    # options.headless = True
     options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')  # heroku
     executable_path = os.environ.get('CHROMEDRIVER_PATH')  # heroku
 
