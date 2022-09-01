@@ -30,22 +30,23 @@ def get_soup(search_term):
     # options = Options()
 
     # options.headless = True
-    options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')  # heroku
-    executable_path = os.environ.get('CHROMEDRIVER_PATH')  # heroku
+    # options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')  # heroku
+    # executable_path = os.environ.get('CHROMEDRIVER_PATH')  # heroku
 
     options.add_argument("--headless")
+    options.add_argument('window-size=1920x1080')
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--no-sandbox")
 
-    driver = webdriver.Chrome(executable_path=executable_path, chrome_options=options)  # heroku
-    # driver = webdriver.Chrome(chrome_options=options)  # Personal
+    # driver = webdriver.Chrome(executable_path=executable_path, options=options)  # heroku
+    driver = webdriver.Chrome(options=options)  # Personal
     url = 'https://www.amazon.ca/'
     driver.get(url)
     # driver.maximize_window()
     # time.sleep(15)
 
     # search_box = driver.find_element(By.ID, "twotabsearchtextbox")
-    wait = WebDriverWait(driver, 30)
+    wait = WebDriverWait(driver, 20)
     search_box = wait.until(EC.presence_of_element_located((By.ID, "twotabsearchtextbox")))
 
     search_box.send_keys(search_term)
@@ -108,23 +109,19 @@ def create_dataframe(search):
     return df
 
 
-def create_bp(dataframe):
+def create_bp(dataframe, location='Website/static/amazon/boxplot.jpg'):
     bp = dataframe.boxplot(by=['Search Term'], column=['Price ($)'], grid=False, showmeans=True)
     bp.set_title("")
     # bp.set_xlabel("")
     bp.set_ylabel("Price ($)")
 
     # plt.suptitle('')
-    plt.savefig('Website/static/amazon/boxplot.png')
+    plt.savefig(location)
 
 
-def save_to_excel(dataframe):
-    writer = pd.ExcelWriter('Website/static/amazon/Amazon Web-Scraper.xlsx')
+def save_to_excel(dataframe, location='Website/static/amazon/Amazon Web-Scraper.xlsx'):
+    writer = pd.ExcelWriter(location)
     dataframe.to_excel(writer, sheet_name='Data', index=False)
-
-    bpsheet = writer.sheets['Data']
-    # bpsheet.add_image('E2', 'Website/static/amazon/boxplot.png')
-    # bpsheet.insert_image('E2', 'Website/static/amazon/boxplot.png')
     writer.save()
     print('saved files')
 
@@ -132,5 +129,5 @@ def save_to_excel(dataframe):
 if __name__ == '__main__':
     search = input('What would you like to search? ')
     df = create_dataframe(search)
-    create_bp(df, 'Website/static/amazon/boxplot.png')
-    save_to_excel(df, 'Website/static/amazon/Amazon Web-Scraper.xlsx', 'Website/static/amazon/boxplot.png')
+    create_bp(df, 'boxplot.jpg')
+    save_to_excel(df, 'Amazon Web-Scraper.xlsx')
