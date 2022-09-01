@@ -47,16 +47,17 @@ def get_soup(search_term):
     driver.get(url)
     # driver.maximize_window()
     # time.sleep(15)
+    driver.save_screenshot('before.jpg')
 
     # search_box = driver.find_element(By.ID, "twotabsearchtextbox")
-    wait = WebDriverWait(driver, 20)
+    wait = WebDriverWait(driver, 30)
     search_box = wait.until(EC.presence_of_element_located((By.ID, "twotabsearchtextbox")))
 
     search_box.send_keys(search_term)
     search_box.submit()
     time.sleep(5)
 
-    driver.save_screenshot('local_ss.png')
+    driver.save_screenshot('after_search.jpg')
 
     html = driver.page_source
 
