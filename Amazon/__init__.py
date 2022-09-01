@@ -1,6 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 from bs4 import BeautifulSoup
 import time
 import pandas as pd
@@ -28,21 +30,24 @@ def get_soup(search_term):
     # options = Options()
 
     # options.headless = True
-    options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')  # heroku
-    executable_path = os.environ.get('CHROMEDRIVER_PATH')  # heroku
+    # options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')  # heroku
+    # executable_path = os.environ.get('CHROMEDRIVER_PATH')  # heroku
 
     options.add_argument("--headless")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--no-sandbox")
 
-    driver = webdriver.Chrome(executable_path=executable_path, chrome_options=options)  # heroku
-    # driver = webdriver.Chrome(chrome_options=options)  # Personal
+    # driver = webdriver.Chrome(executable_path=executable_path, chrome_options=options)  # heroku
+    driver = webdriver.Chrome(chrome_options=options)  # Personal
     url = 'https://www.amazon.ca/'
     driver.get(url)
     # driver.maximize_window()
-    time.sleep(15)
+    # time.sleep(15)
 
-    search_box = driver.find_element(By.ID, "twotabsearchtextbox")
+    # search_box = driver.find_element(By.ID, "twotabsearchtextbox")
+    wait = WebDriverWait(driver, 30)
+    search_box = wait.until(EC.presence_of_element_located((By.ID, "twotabsearchtextbox")))
+
     search_box.send_keys(search_term)
     search_box.submit()
     time.sleep(5)
