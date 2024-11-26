@@ -3,11 +3,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.chrome.service import Service
 from bs4 import BeautifulSoup
 import time
 import pandas as pd
 import matplotlib.pyplot as plt
 import undetected_chromedriver as uc
+from webdriver_manager.chrome import ChromeDriverManager
 import os
 
 
@@ -32,8 +34,9 @@ def get_soup(search_term):
     # options.headless = True
     # options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')  # heroku
     # executable_path = os.environ.get('CHROMEDRIVER_PATH')  # heroku
-    options.add_argument("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
-                         "Chrome/92.0.4515.131 ""Safari/537.36")
+
+    # options.add_argument("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+    #                      "Chrome/92.0.4515.131 ""Safari/537.36")
 
     options.add_argument("--headless")
     options.add_argument("--disable-dev-shm-usage")
@@ -42,22 +45,22 @@ def get_soup(search_term):
     options.add_argument("window-size=1920x1080")
 
     # driver = webdriver.Chrome(executable_path=executable_path, options=options)  # heroku
-    driver = webdriver.Chrome(options=options)  # Personal
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     url = 'https://www.amazon.ca/'
     driver.get(url)
     # driver.maximize_window()
     # time.sleep(15)
-    driver.save_screenshot('before.jpg')
+    driver.save_screenshot('Website/static/amazon/before.png')
 
     # search_box = driver.find_element(By.ID, "twotabsearchtextbox")
-    wait = WebDriverWait(driver, 30)
+    wait = WebDriverWait(driver, 20)
     search_box = wait.until(EC.presence_of_element_located((By.ID, "twotabsearchtextbox")))
 
     search_box.send_keys(search_term)
     search_box.submit()
     time.sleep(5)
 
-    driver.save_screenshot('after_search.jpg')
+    driver.save_screenshot('Website/static/amazon/after_search.png')
 
     html = driver.page_source
 
@@ -114,6 +117,7 @@ def create_dataframe(search):
 
 
 def create_bp(dataframe, location='Website/static/amazon/boxplot.jpg'):
+    plt.switch_backend('Agg')
     bp = dataframe.boxplot(by=['Search Term'], column=['Price ($)'], grid=False, showmeans=True)
     bp.set_title("")
     # bp.set_xlabel("")

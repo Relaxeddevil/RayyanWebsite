@@ -31,6 +31,7 @@ def amazon():
         flash('Searching for your results, please provide a few minutes while I scrape')
         input = request.form.get('search')
         df = create_dataframe(input)
+        time.sleep(1)
         create_bp(df)
         save_to_excel(df)
         # time.sleep(3)
